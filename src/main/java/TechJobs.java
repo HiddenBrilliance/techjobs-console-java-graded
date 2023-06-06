@@ -1,4 +1,5 @@
 import javax.swing.text.Position;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -122,9 +123,22 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
 
+        for (Map.Entry<String, String> job : someJobs.entrySet()) {
+            System.out.println(job.getKey() + ":" + job.getValue());
+
+
+        }
+
+
+    }
+
+
+
+
         //print *****
         //HashMap each job
-        HashMap<String, String> jobs = new HashMap<>();
+
+
 
 
 
@@ -157,7 +171,7 @@ public class TechJobs {
 
         // }
 
-    }
+
 }
 
 

@@ -32,6 +32,7 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+
         ArrayList<String> values = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
@@ -73,14 +74,14 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();// new hm instance
 
-        for (HashMap<String, String> row : allJobs) {
+        for (HashMap<String, String> row : allJobs) { //for row (hm) in ArrayList (allJobs)
 
-            String aValue = row.get(column);
+            String aValue = row.get(column); //creates a String called aValue that gets the column from row
 
-            if (aValue.contains(value)) {
-                jobs.add(row);
+            if (aValue.contains(value)) { // boolean that says if a value has a value
+                jobs.add(row); //row is added to the jobs arraylist
             }
         }
 
@@ -98,8 +99,17 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        //outer loop access the value
+        for (HashMap<String, String> searchValue : findByValue(value)) {
+           //conditional if statement
+            if(searchValue.containsValue(value)){
+               System.out.println("it prints value");
+            }
+        }
+
+
         // TODO - implement this method
-        return null;
+        return findByValue(value);
     }
 
     /**

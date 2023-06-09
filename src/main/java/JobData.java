@@ -98,18 +98,21 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+       ArrayList<HashMap<String, String>>valueList = new ArrayList<>();
 
-        //outer loop access the value
+        for (int i = 0; i < valueList.size() ; i++) {
+
+            //outer loop access the value
         for (HashMap<String, String> searchValue : findByValue(value)) {
            //conditional if statement
             if(searchValue.containsValue(value)){
                System.out.println("it prints value");
             }
         }
-
+        }
 
         // TODO - implement this method
-        return findByValue(value);
+        return valueList;
     }
 
     /**

@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -98,21 +95,38 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-       ArrayList<HashMap<String, String>>valueList = new ArrayList<>();
 
-        for (int i = 0; i < valueList.size() ; i++) {
+        for (HashMap<String, String> job : allJobs) { // outer for each job in allJobs
+            Set<Map.Entry<String, String>> entries = job.entrySet(); // job info for each job turned into a set
 
-            //outer loop access the value
-        for (HashMap<String, String> searchValue : findByValue(value)) {
-           //conditional if statement
-            if(searchValue.containsValue(value)){
-               System.out.println("it prints value");
+            for (Map.Entry<String, String> entry : entries){// iterates for each entry inm
+            String jobMatch = entry.getValue(); // string for value of entry
+            if(value.contains(jobMatch)){ // conditional if value contains jobMatch
+                System.out.println(value); //print value
             }
+            else if (!value.contains(jobMatch)) { // conditional if it does not contain value
+                System.out.println("No results");
+            }
+            }
+
         }
-        }
+
+
+//       ArrayList<HashMap<String, String>>valueList = new ArrayList<>();
+//
+//        for (int i = 0; i < valueList.size() ; i++) {
+//
+//            //outer loop access the value
+//        for (HashMap<String, String> searchValue : findByValue(value)) {
+//           //conditional if statement
+//            if(searchValue.containsValue(value)){
+//               System.out.println("it prints value");
+//            }
+//        }
+//        }
 
         // TODO - implement this method
-        return valueList;
+        return findByValue(value);
     }
 
     /**

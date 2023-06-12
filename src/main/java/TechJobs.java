@@ -126,14 +126,17 @@ public class TechJobs {
             System.out.println("\n");
             System.out.println("*****");
 
+
            for (Map.Entry<String, String> job : jobInformation.entrySet()){
 
                System.out.println(job.getKey() + ":" + job.getValue());
+
            }
 
             }
         }
     }
+
 
 
 
